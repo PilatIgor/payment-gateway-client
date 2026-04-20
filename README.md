@@ -6,8 +6,22 @@
 # 1. Copy and fill in your environment variables
 cp .env.example .env
 
+2. Download certificates from https://badssl.com/download/
+    Place badssl.com-client.pem into the certificates/ directory
+
+# 3. Build and test
+make start
+make test
+```
+
+## Manual Docker Setup
+
+```bash
+# 1. Copy and fill in your environment variables
+cp .env.example .env
+
 # 2. Download certificates from https://badssl.com/download/
-#    Place badssl.com-client.pem into the certificates/ directory
+#   Place badssl.com-client.pem into the certificates/ directory
 
 # 3. Build the Docker image
 docker build -t payment-gateway .
