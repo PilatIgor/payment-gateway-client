@@ -2,15 +2,13 @@
 
 namespace SharpMinds\PaymentGatewayClient\Service;
 
-use SharpMinds\PaymentGatewayClient\Helper\Config;
-
 class HmacService
 {
     private string $secret;
 
-    public function __construct(Config $config)
+    public function __construct(string $secret)
     {
-        $this->secret = $config->get('HMAC_SECRET');
+        $this->secret = $secret;
     }
 
     public function generateHmac(array $payload): string

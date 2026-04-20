@@ -5,25 +5,25 @@ namespace SharpMinds\PaymentGatewayClient\Tests\Integration\Client;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 use SharpMinds\PaymentGatewayClient\Client\PaymentGatewayClient;
-use SharpMinds\PaymentGatewayClient\Exception\GatewayException;
-use SharpMinds\PaymentGatewayClient\Helper\Config;
 use SharpMinds\PaymentGatewayClient\Service\HmacService;
 use Symfony\Component\Dotenv\Dotenv;
 
 class PaymentGatewayTest extends TestCase
 {
     private PaymentGatewayClient $client;
-    private Config $config;
+    private string $apiUrl;
 
     protected function setUp(): void
     {
         (new Dotenv())->loadEnv(dirname(__DIR__, 3) . '/.env');
 
-        $this->config = new Config();
+        $this->apiUrl = $_ENV['API_URL'];
         $this->client = new PaymentGatewayClient(
-            $this->config,
-            new HmacService($this->config),
-            new Client()
+            new HmacService($_ENV['HMAC_SECRET']),
+            new Client(),
+            $_ENV['CERTIFICATE_PATH'],
+            $_ENV['CERTIFICATE_KEY_PATH'],
+            $_ENV['KEY_PASSPHRASE']
         );
     }
 
@@ -35,7 +35,7 @@ class PaymentGatewayTest extends TestCase
             'currency'       => 'USD',
         ];
 
-        $response = $this->client->send($this->config->get('API_URL'), $payload);
+        $response = $this->client->send($this->apiUrl, $payload);
 
         $this->assertNotEmpty($response);
     }

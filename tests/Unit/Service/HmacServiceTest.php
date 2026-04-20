@@ -3,7 +3,6 @@
 namespace SharpMinds\PaymentGatewayClient\Tests\Unit\Service;
 
 use PHPUnit\Framework\TestCase;
-use SharpMinds\PaymentGatewayClient\Helper\Config;
 use SharpMinds\PaymentGatewayClient\Service\HmacService;
 
 class HmacServiceTest extends TestCase
@@ -12,10 +11,7 @@ class HmacServiceTest extends TestCase
 
     protected function setUp(): void
     {
-        $config = $this->createMock(Config::class);
-        $config->method('get')->with('HMAC_SECRET')->willReturn('test-secret');
-
-        $this->hmacService = new HmacService($config);
+        $this->hmacService = new HmacService('test-secret');
     }
 
     public function testGenerateHmacReturnsSha256Hash(): void

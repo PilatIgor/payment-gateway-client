@@ -5,20 +5,28 @@ namespace SharpMinds\PaymentGatewayClient\Client;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use SharpMinds\PaymentGatewayClient\Exception\GatewayException;
-use SharpMinds\PaymentGatewayClient\Helper\Config;
 use SharpMinds\PaymentGatewayClient\Service\HmacService;
 
 class PaymentGatewayClient
 {
-    private Config $config;
     private HmacService $hmacService;
     private Client $httpClient;
+    private string $certPath;
+    private string $keyPath;
+    private string $passphrase;
 
-    public function __construct(Config $config, HmacService $hmacService, Client $httpClient)
-    {
-        $this->config = $config;
+    public function __construct(
+        HmacService $hmacService,
+        Client $httpClient,
+        string $certPath,
+        string $keyPath,
+        string $passphrase
+    ) {
         $this->hmacService = $hmacService;
-        $this->httpClient = $httpClient;
+        $this->httpClient  = $httpClient;
+        $this->certPath    = $certPath;
+        $this->keyPath     = $keyPath;
+        $this->passphrase  = $passphrase;
     }
 
     public function send(string $url, array $payload): string
@@ -33,12 +41,12 @@ class PaymentGatewayClient
                 'verify'  => true,
                 'query'   => $payload,
                 'cert'    => [
-                    $this->config->get('CERTIFICATE_PATH'),
-                    $this->config->get('KEY_PASSPHRASE')
+                    $this->certPath,
+                    $this->passphrase
                 ],
                 'ssl_key' => [
-                    $this->config->get('CERTIFICATE_KEY_PATH'),
-                    $this->config->get('KEY_PASSPHRASE')
+                    $this->keyPath,
+                    $this->passphrase
                 ],
             ]);
         } catch (GuzzleException $e) {
