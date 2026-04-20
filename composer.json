@@ -1,6 +1,6 @@
 {
     "name": "sharpminds/payment-gateway-client",
-    "description": "PHP client for payment gateway with mTLS and HMAC signature support",
+    "description": "PHP client for payment gateway with mTLS and HMAC",
     "type": "library",
     "license": "MIT",
     "authors": [
