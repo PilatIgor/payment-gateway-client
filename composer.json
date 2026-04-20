@@ -1,0 +1,31 @@
+{
+    "name": "sharpminds/payment-gateway-client",
+    "description": "PHP client for payment gateway with mTLS and HMAC signature support",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PilatIhor",
+            "email": "pilatigor039@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "guzzlehttp/guzzle": "^7.0",
+        "symfony/dotenv": "^5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SharpMinds\\PaymentGatewayClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SharpMinds\\PaymentGatewayClient\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}
