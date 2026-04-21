@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use SharpMinds\PaymentGatewayClient\Exception\GatewayException;
 use SharpMinds\PaymentGatewayClient\Service\HmacService;
 
-class PaymentGatewayClient
+class PaymentGatewayClient implements PaymentGatewayClientInterface
 {
     private HmacService $hmacService;
     private Client $httpClient;
@@ -27,6 +27,21 @@ class PaymentGatewayClient
         $this->certPath    = $certPath;
         $this->keyPath     = $keyPath;
         $this->passphrase  = $passphrase;
+    }
+
+    public static function create(
+        string $hmacSecret,
+        string $certPath,
+        string $keyPath,
+        string $passphrase
+    ): self {
+        return new self(
+            new HmacService($hmacSecret),
+            new Client(),
+            $certPath,
+            $keyPath,
+            $passphrase,
+        );
     }
 
     public function send(string $url, array $payload): string
