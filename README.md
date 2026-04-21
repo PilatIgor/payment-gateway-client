@@ -1,17 +1,10 @@
 # Payment Gateway Client
 
-## Quick Start with Docker
+## Useful command to setup and test project
 
 ```bash
-# 1. Copy and fill in your environment variables
-cp .env.example .env
-
-2. Download certificates from https://badssl.com/download/
-    Place badssl.com-client.pem into the certificates/ directory
-
-# 3. Build and test
-make start
-make test
+make start - build docker image 
+make test - run all tests #(use this command after configure env)
 ```
 
 ## Manual Docker Setup
