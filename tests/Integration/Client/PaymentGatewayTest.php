@@ -1,9 +1,9 @@
 <?php
 
-namespace SharpMinds\PaymentGatewayClient\Tests\Integration\Client;
+namespace Haverllok\PaymentGatewayClient\Tests\Integration\Client;
 
 use PHPUnit\Framework\TestCase;
-use SharpMinds\PaymentGatewayClient\Client\PaymentGatewayClient;
+use Haverllok\PaymentGatewayClient\Client\PaymentGatewayClient;
 use Symfony\Component\Dotenv\Dotenv;
 
 class PaymentGatewayTest extends TestCase
@@ -17,10 +17,10 @@ class PaymentGatewayTest extends TestCase
 
         $this->apiUrl = $_ENV['API_URL'];
         $this->client = PaymentGatewayClient::create(
+            hmacSecret: $_ENV['HMAC_SECRET'],
             certPath: $_ENV['CERTIFICATE_PATH'],
             keyPath: $_ENV['CERTIFICATE_KEY_PATH'],
             passphrase: $_ENV['KEY_PASSPHRASE'],
-            hmacSecret: $_ENV['HMAC_SECRET'],
         );
     }
 

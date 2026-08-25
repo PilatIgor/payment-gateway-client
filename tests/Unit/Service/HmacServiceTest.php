@@ -1,9 +1,9 @@
 <?php
 
-namespace SharpMinds\PaymentGatewayClient\Tests\Unit\Service;
+namespace Haverllok\PaymentGatewayClient\Tests\Unit\Service;
 
 use PHPUnit\Framework\TestCase;
-use SharpMinds\PaymentGatewayClient\Service\HmacService;
+use Haverllok\PaymentGatewayClient\Service\HmacService;
 
 class HmacServiceTest extends TestCase
 {

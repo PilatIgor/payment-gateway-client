@@ -1,6 +1,6 @@
 <?php
 
-namespace SharpMinds\PaymentGatewayClient\Client;
+namespace Haverllok\PaymentGatewayClient\Client;
 
 interface PaymentGatewayClientInterface
 {

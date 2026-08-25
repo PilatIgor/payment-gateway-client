@@ -1,15 +1,15 @@
 <?php
 
-namespace SharpMinds\PaymentGatewayClient\Tests\Unit\Client;
+namespace Haverllok\PaymentGatewayClient\Tests\Unit\Client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
-use SharpMinds\PaymentGatewayClient\Client\PaymentGatewayClient;
-use SharpMinds\PaymentGatewayClient\Exception\GatewayException;
-use SharpMinds\PaymentGatewayClient\Service\HmacService;
+use Haverllok\PaymentGatewayClient\Client\PaymentGatewayClient;
+use Haverllok\PaymentGatewayClient\Exception\GatewayException;
+use Haverllok\PaymentGatewayClient\Service\HmacService;
 
 class PaymentGatewayClientTest extends TestCase
 {

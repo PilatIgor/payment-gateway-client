@@ -1,11 +1,11 @@
 <?php
 
-namespace SharpMinds\PaymentGatewayClient\Client;
+namespace Haverllok\PaymentGatewayClient\Client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use SharpMinds\PaymentGatewayClient\Exception\GatewayException;
-use SharpMinds\PaymentGatewayClient\Service\HmacService;
+use Haverllok\PaymentGatewayClient\Exception\GatewayException;
+use Haverllok\PaymentGatewayClient\Service\HmacService;
 
 class PaymentGatewayClient implements PaymentGatewayClientInterface
 {

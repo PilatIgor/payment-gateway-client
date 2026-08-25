@@ -1,5 +1,5 @@
 {
-    "name": "sharpminds/payment-gateway-client",
+    "name": "haverllok/payment-gateway-client",
     "description": "PHP client for payment gateway with mTLS and HMAC",
     "type": "library",
     "license": "MIT",
@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SharpMinds\\PaymentGatewayClient\\": "src/"
+            "Haverllok\\PaymentGatewayClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SharpMinds\\PaymentGatewayClient\\Tests\\": "tests/"
+            "Haverllok\\PaymentGatewayClient\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable"

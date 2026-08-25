@@ -2,7 +2,6 @@
 /.gitignore        export-ignore
 /.idea             export-ignore
 /.env              export-ignore
-/.env.example      export-ignore
 /Makefile          export-ignore
 /Dockerfile        export-ignore
 /phpunit.xml       export-ignore

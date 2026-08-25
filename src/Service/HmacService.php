@@ -1,6 +1,6 @@
 <?php
 
-namespace SharpMinds\PaymentGatewayClient\Service;
+namespace Haverllok\PaymentGatewayClient\Service;
 
 class HmacService
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace SharpMinds\PaymentGatewayClient\Exception;
+namespace Haverllok\PaymentGatewayClient\Exception;
 
 use RuntimeException;
 
